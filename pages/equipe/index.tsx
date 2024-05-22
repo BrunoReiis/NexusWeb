@@ -62,6 +62,31 @@ export default function EquipePage() {
           ))}
         </div>
       </section>
+      <section className="my-8 text-center justify-center items-center">
+        <h1 className={title({ color: "violet", size: "md" })}>
+          Celeste
+        </h1>
+        <div className="my-3 flex flex-wrap justify-center gap-4">
+          {cardConfig.cardCeleste.map((item) => (
+            <Card key={item.nome} className="max-h-82	py-4">
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <p className="font-bold text-large">{item.nome}</p>
+                <small className="text-default-500">{item.discordName}</small>
+                <h4 className="text-tiny uppercase font-bold">{item.cargo}</h4>
+              </CardHeader>
+              <CardBody className="overflow-visible py-2">
+                <Image
+                  alt="Card background"
+                  className="select-none pointer-events-none max-h-60	object-cover rounded-xl"
+                  src={item.img}
+                  width={250}
+                  height={300}
+                />
+              </CardBody>
+            </Card>
+          ))}
+        </div>
+      </section>
     </DefaultLayout>
   );
 }

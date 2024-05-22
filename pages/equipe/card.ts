@@ -4,6 +4,7 @@ import Cleitin from '../../public/cardsImgs/Cleitin.png'
 import MP from '../../public/cardsImgs/Mp.jpeg'
 import Ga from '../../public/cardsImgs/Ga.jpg'
 import Gato from '../../public/cardsImgs/Gato.jpeg'
+import Celeste from '../../public/cardsImgs/Celeste.jpg'
 
 export const cardConfig = {
     cardsOwner:[
@@ -45,5 +46,13 @@ export const cardConfig = {
             cargo: 'Conselho dos Anciões',
             img: Gato.src,
         },
+    ],
+    cardCeleste:[
+        {
+            nome: 'Celeste',
+            discordName: 'Celeste',
+            cargo: 'NexusBot/Filha do BrunoReiis',
+            img: Celeste.src,
+        }
     ]
 }
