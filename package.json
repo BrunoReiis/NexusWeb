@@ -9,7 +9,10 @@
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
 	},
 	"dependencies": {
+		"@nextui-org/pagination": "^2.0.30",
 		"@nextui-org/react": "^2.3.6",
+		"@nextui-org/use-aria-link": "^2.0.16",
+		"@nextui-org/use-aria-menu": "^2.0.2",
 		"@react-aria/visually-hidden": "^3.8.10",
 		"@types/node": "20.5.7",
 		"@types/react": "18.2.21",

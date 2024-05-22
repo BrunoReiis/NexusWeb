@@ -18,7 +18,7 @@ export default function EquipePage() {
         <h1 className={title({ color: "fullviolet", size: "md" })}>Owner</h1>
         <div className="my-3 flex flex-wrap justify-center gap-4">
           {cardConfig.cardsOwner.map((item) => (
-            <Card className="py-4">
+            <Card key={item.discordName} className="py-4">
               <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                 <p className="font-bold text-large">{item.nome}</p>
                 <small className="text-default-500">{item.discordName}</small>
@@ -43,7 +43,7 @@ export default function EquipePage() {
         </h1>
         <div className="my-3 flex flex-wrap justify-center gap-4">
           {cardConfig.cardsConselho.map((item) => (
-            <Card key={item.nome} className="max-h-82	py-4">
+            <Card key={item.discordName} className="max-h-82	py-4">
               <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                 <p className="font-bold text-large">{item.nome}</p>
                 <small className="text-default-500">{item.discordName}</small>
@@ -66,7 +66,7 @@ export default function EquipePage() {
         <h1 className={title({ color: "violet", size: "md" })}>Celeste</h1>
         <div className="my-3 flex flex-wrap justify-center gap-4">
           {cardConfig.cardCeleste.map((item) => (
-            <Card key={item.nome} className="max-h-82	py-4">
+            <Card key={item.discordName} className="max-h-82	py-4">
               <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                 <p className="font-bold text-large">{item.nome}</p>
                 <small className="text-default-500">{item.discordName}</small>
