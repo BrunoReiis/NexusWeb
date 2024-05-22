@@ -1,10 +1,10 @@
 export type CardConfig = typeof cardConfig;
-import Bruno from '../../public/cardsImgs/Bruno.jpeg'
-import Cleitin from '../../public/cardsImgs/Cleitin.png'
-import MP from '../../public/cardsImgs/Mp.jpeg'
-import Ga from '../../public/cardsImgs/Ga.jpg'
-import Gato from '../../public/cardsImgs/Gato.jpeg'
-import Celeste from '../../public/cardsImgs/Celeste.jpg'
+import Bruno from '../public/cardsImgs/Bruno.jpeg'
+import Cleitin from '../public/cardsImgs/Cleitin.png'
+import MP from '../public/cardsImgs/Mp.jpeg'
+import Ga from '../public/cardsImgs/Ga.jpg'
+import Gato from '../public/cardsImgs/Gato.jpeg'
+import Celeste from '../public/cardsImgs/Celeste.jpg'
 
 export const cardConfig = {
     cardsOwner:[

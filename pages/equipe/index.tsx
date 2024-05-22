@@ -1,7 +1,7 @@
 import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import { cardConfig } from "./card";
+import { cardConfig } from "../../config/card";
 import React from "react";
 
 export default function EquipePage() {
