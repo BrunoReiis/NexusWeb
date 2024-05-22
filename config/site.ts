@@ -2,6 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "NexusFT Web",
+  nameNormal: 'NexusFt',
   description: "A Website for Nexus",
   navItems: [
     {

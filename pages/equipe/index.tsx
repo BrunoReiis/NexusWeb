@@ -63,9 +63,7 @@ export default function EquipePage() {
         </div>
       </section>
       <section className="my-8 text-center justify-center items-center">
-        <h1 className={title({ color: "violet", size: "md" })}>
-          Celeste
-        </h1>
+        <h1 className={title({ color: "violet", size: "md" })}>Celeste</h1>
         <div className="my-3 flex flex-wrap justify-center gap-4">
           {cardConfig.cardCeleste.map((item) => (
             <Card key={item.nome} className="max-h-82	py-4">
