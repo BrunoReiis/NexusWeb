@@ -5,6 +5,7 @@ import MP from '../public/cardsImgs/Mp.jpeg'
 import Ga from '../public/cardsImgs/Ga.jpg'
 import Gato from '../public/cardsImgs/Gato.jpeg'
 import Celeste from '../public/cardsImgs/Celeste.jpg'
+import Silvas from '../public/cardsImgs/Silvas.png'
 
 export const cardConfig = {
     cardsOwner:[
@@ -18,7 +19,7 @@ export const cardConfig = {
             nome: 'Gabriel Silvério',
             discordName: 'Gaabs',
             cargo: 'Owner',
-            img: '../../public/cardsImgs/Bruno.jpeg',
+            img: Silvas.src,
         },
     ],
     cardsConselho:[
