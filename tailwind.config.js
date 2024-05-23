@@ -15,9 +15,14 @@ module.exports = {
           '0%': { opacity: 0, transform: 'translateY(50px)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
+        'fade-left':{
+          '0%': { opacity: 0, transform: 'translateX(50px)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 1.3s ease-out forwards',
+        'fade-left': 'fade-left 1.3s ease-out forwards',
       },
     },
   },

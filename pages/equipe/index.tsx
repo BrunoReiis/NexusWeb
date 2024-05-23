@@ -7,14 +7,14 @@ import React from "react";
 export default function EquipePage() {
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4">
+      <section className="flex flex-col items-center justify-center gap-4 animate-fade-left">
         <div className="inline-block max-w-lg text-center justify-center">
           <h1 className={title({ color: "fullviolet" })}>
             Conheça a nossa Equipe!
           </h1>
         </div>
       </section>
-      <section className="my-8 text-center justify-center items-center">
+      <section className="my-8 text-center justify-center items-center animate-fade-up">
         <h1 className={title({ color: "fullviolet", size: "md" })}>Owner</h1>
         <div className="my-3 flex flex-wrap justify-center gap-4">
           {cardConfig.cardsOwner.map((item) => (
@@ -37,7 +37,7 @@ export default function EquipePage() {
           ))}
         </div>
       </section>
-      <section className="my-8 text-center justify-center items-center">
+      <section className="my-8 text-center justify-center items-center animate-fade-up">
         <h1 className={title({ color: "fullred", size: "md" })}>
           Conselho dos Anciões
         </h1>
@@ -62,7 +62,7 @@ export default function EquipePage() {
           ))}
         </div>
       </section>
-      <section className="my-8 text-center justify-center items-center">
+      <section className="my-8 text-center justify-center items-center animate-fade-up">
         <h1 className={title({ color: "violet", size: "md" })}>Celeste</h1>
         <div className="my-3 flex flex-wrap justify-center gap-4">
           {cardConfig.cardCeleste.map((item) => (
