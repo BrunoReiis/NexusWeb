@@ -26,7 +26,6 @@ import {
 import { NexusLogo } from "@/components/icons";
 
 export const Navbar = () => {
-
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -42,7 +41,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
                 )}
                 color="foreground"
                 href={item.href}
@@ -81,11 +80,7 @@ export const Navbar = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <NextLink
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
+              <NextLink href={item.href}>{item.label}</NextLink>
             </NavbarMenuItem>
           ))}
         </div>

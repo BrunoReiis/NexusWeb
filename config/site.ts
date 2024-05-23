@@ -36,7 +36,7 @@ export const siteConfig = {
     github: "https://github.com/brunoreiis",
     twitter: "https://twitter.com/getnextui",
     docs: "https://nextui-docs-v2.vercel.app",
-    discord: "https://discord.gg/9b6yyZKmH4",
+    discord: "https://discord.gg/J2VNMcPakP",
     sponsor: "https://patreon.com/jrgarciadev",
   },
 };
