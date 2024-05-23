@@ -5,12 +5,12 @@ import { Button } from "@nextui-org/react";
 export default function SobrePage() {
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <section className="-mt-24 flex flex-col items-center justify-center gap-4 py-8 md:py-10 animate-fade-left">
         <div className="inline-block max-w-lg text-center justify-center">
           <h1 className={title({ color: "fullviolet" })}>Sobre Nós</h1>
         </div>
       </section>
-      <section>
+      <section className="animate-fade-up">
         <h1 className={title({ color: "fullviolet", size: "sm" })}>
           Bem-vindo ao NexusFT!
         </h1>
