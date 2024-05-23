@@ -31,17 +31,17 @@ export default function IndexPage() {
     }
   };
 
-  const divNexusLogo = () =>{
+  const divNexusLogo = () => {
     if (screenWidth <= 470) {
-      return "w-full md:w-3/5 mt-9 md:mt-0 flex justify-center items-center"
+      return "w-full md:w-3/5 mt-9 md:mt-0 flex justify-center items-center";
     } else {
-      return "w-full md:w-3/5 mt-4 md:mt-0 flex justify-center items-center"
+      return "w-full md:w-3/5 mt-4 md:mt-0 flex justify-center items-center";
     }
-  }
+  };
 
   return (
     <DefaultLayout>
-      <section className={sectionClassNames()}>
+      <section className={`${sectionClassNames()} animate-fade-up`}>
         <div className="w-full md:w-2/5">
           <h1 className={title({ color: "fullviolet", size: "lg" })}>
             {siteConfig.nameNormal}
