@@ -24,15 +24,19 @@ export default function IndexPage() {
   }, []);
 
   const sectionClassNames = () => {
-    if (screenWidth <= 470) {
+    if (screenWidth <= 800) {
       return "flex flex-col md:flex-row ml-2 mr-2 space-x-0 md:space-x-4";
-    } else {
+    } 
+    if (screenWidth <= 1500) {
+      return "flex flex-col md:flex-row ml-2 mr-2 mt-32 space-x-0 md:space-x-4";
+    }
+    else {
       return "flex flex-col md:flex-row ml-2 mr-2 mt-48 space-x-0 md:space-x-4";
     }
   };
 
   const divNexusLogo = () => {
-    if (screenWidth <= 470) {
+    if (screenWidth <= 800) {
       return "w-full md:w-3/5 mt-9 md:mt-0 flex justify-center items-center";
     } else {
       return "w-full md:w-3/5 mt-4 md:mt-0 flex justify-center items-center";
