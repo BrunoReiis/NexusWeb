@@ -26,7 +26,11 @@ export default function IndexPage() {
   const sectionClassNames = () => {
     if (screenWidth <= 800) {
       return "flex flex-col md:flex-row ml-2 mr-2 space-x-0 md:space-x-4";
-    } else {
+    } 
+    if (screenWidth <= 1500) {
+      return "flex flex-col md:flex-row ml-2 mr-2 mt-16 space-x-0 md:space-x-4";
+    }
+    else {
       return "flex flex-col md:flex-row ml-2 mr-2 mt-48 space-x-0 md:space-x-4";
     }
   };
