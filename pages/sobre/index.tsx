@@ -1,8 +1,36 @@
+import { DiscordIcon } from "@/components/icons";
 import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { Button } from "@nextui-org/react";
+import React, { useEffect, useState } from "react";
 
 export default function SobrePage() {
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
+  console.log(screenWidth);
+
+  const buttonDiscord = () => {
+    if (screenWidth > 900) {
+      return "hidden";
+    } else {
+      return "w-full flex items-center justify-center";
+    }
+  };
+
   return (
     <DefaultLayout>
       <section className="-mt-24 flex flex-col items-center justify-center gap-4 py-8 md:py-10 animate-fade-left">
@@ -81,6 +109,15 @@ export default function SobrePage() {
           para entrar no nosso servidor de Discord e começar sua jornada hoje
           mesmo!
         </p>
+        <div className={`${buttonDiscord()}`}>
+          <Button
+            variant="solid"
+            className="w-1/2 font-bold bg-purple-600 text-white"
+            endContent={<DiscordIcon />}
+          >
+            Faça parte!
+          </Button>
+        </div>
       </section>
     </DefaultLayout>
   );
