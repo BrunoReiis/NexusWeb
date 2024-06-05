@@ -3,10 +3,10 @@ import DefaultLayout from "@/layouts/default";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/react";
 import { EyeSlashFilledIcon, EyeFilledIcon } from "@/components/icons";
-import React from "react";
+import { useState } from "react";
 
 export default function login() {
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
