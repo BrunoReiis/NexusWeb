@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { auth } from '../firebase/authentication';
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { auth } from "../firebase/authentication";
 
 const withAuth = (WrappedComponent) => {
   return (props) => {
