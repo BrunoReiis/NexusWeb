@@ -10,7 +10,7 @@ const withAuth = (WrappedComponent) => {
     useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((user) => {
         if (!user) {
-          router.replace('/login');
+          router.replace("/login");
         } else {
           setLoading(false);
         }
@@ -26,7 +26,7 @@ const withAuth = (WrappedComponent) => {
     return <WrappedComponent {...props} />;
   };
 
-  AuthComponent.displayName = `withAuth(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+  AuthComponent.displayName = `withAuth(${WrappedComponent.displayName || WrappedComponent.name || "Component"})`;
 
   return AuthComponent;
 };

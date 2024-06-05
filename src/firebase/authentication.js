@@ -1,6 +1,6 @@
 import { app } from './firebase';
 
-import { signWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut} from "firebase/auth";
+import { signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut} from "firebase/auth";
 import { addDoc, collection, getFirestore, query, getDocs, where} from "firebase/firestore";
 
 const auth = getAuth(app)
@@ -8,7 +8,7 @@ const db = getFirestore(app)
 
 const loginComEmailESenha = async (email, pwd) => {
     try {
-        await signWithEmailAndPassword(auth, email, pwd)
+        await signInWithEmailAndPassword(auth, email, pwd)
     }catch(error){
 
     }
