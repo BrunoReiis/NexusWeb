@@ -5,7 +5,7 @@ import { Button } from "@nextui-org/react";
 import { EyeSlashFilledIcon, EyeFilledIcon } from "@/components/icons";
 import { useState } from "react";
 
-export default function login() {
+export default function Login() {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
