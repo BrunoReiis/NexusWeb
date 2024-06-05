@@ -26,5 +26,6 @@ const withAuth = (WrappedComponent) => {
     return <WrappedComponent {...props} />;
   };
 };
+withAuth.displayName = 'withAuth';
 
 export default withAuth;
