@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { auth } from "../firebase/authentication";
 
 const withAuth = (WrappedComponent) => {
-  return (props) => {
+  const AuthComponent = (props) => {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
 
@@ -25,7 +25,10 @@ const withAuth = (WrappedComponent) => {
 
     return <WrappedComponent {...props} />;
   };
+
+  AuthComponent.displayName = `withAuth(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+
+  return AuthComponent;
 };
-withAuth.displayName = 'withAuth';
 
 export default withAuth;
