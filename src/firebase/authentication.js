@@ -10,7 +10,7 @@ const loginComEmailESenha = async (email, pwd) => {
     try {
         await signInWithEmailAndPassword(auth, email, pwd)
     }catch(error){
-
+        alert("Email ou senha invalidos")
     }
 }
 
@@ -34,7 +34,7 @@ const recuperarSenha = async (email) => {
         await sendPasswordResetEmail(auth, email);
         alert("Email para recuperação de senha enviado!");
     }catch(error){
-
+        console.log(error)
     }
 }
 
