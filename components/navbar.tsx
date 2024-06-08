@@ -14,6 +14,7 @@ import {
 } from "@nextui-org/react";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { auth, logout } from "@/src/firebase/authentication";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -24,8 +25,31 @@ import {
   HeartFilledIcon,
 } from "@/components/icons";
 import { NexusLogo } from "@/components/icons";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export const Navbar = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const route = useRouter();
+
+  const logOut = () => {
+    logout(route);
+  };
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user: any) => {
+      if (!user) {
+        setLoggedIn(false);
+      } else {
+        setLoggedIn(true);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
@@ -65,6 +89,7 @@ export const Navbar = () => {
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
+          {loggedIn && <Button onClick={logOut}>Deslogar</Button>}
         </NavbarItem>
       </NavbarContent>
 
@@ -74,6 +99,7 @@ export const Navbar = () => {
         </Link>
         <ThemeSwitch />
         <NavbarMenuToggle />
+        {loggedIn && <Button onClick={logOut}>Deslogar</Button>}
       </NavbarContent>
 
       <NavbarMenu>

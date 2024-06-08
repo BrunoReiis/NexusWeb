@@ -5,15 +5,16 @@ import { Button } from "@nextui-org/react";
 import { EyeSlashFilledIcon, EyeFilledIcon, NexusLogo } from "@/components/icons";
 import { useState } from "react";
 import {
-  loginComEmailESenha,
-  recuperarSenha,
+  registrarComEmailESenha,
 } from "@/src/firebase/authentication";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
 export default function Login() {
   const [isVisible, setIsVisible] = useState(false);
   const [valueEmail, setValueEmail] = useState("");
   const [valuePwd, setValuePwd] = useState("");
+  const [valuePwd2, setValuePwd2] = useState("");
+  const [valueName, setValueName] = useState("");
   const router = useRouter();
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -28,16 +29,28 @@ export default function Login() {
       return;
     }
     if (!testPwd()) {
-      alert("Senha menor que 6 digitos");
+      alert("Senha não são iguais");
       return;
     }
+    if (!testPwd6()) {
+        alert("Senha não pode ser menos que 6 caracteres");
+        return;
+      }
 
-    loginComEmailESenha(valueEmail, valuePwd, router);
+    registrarComEmailESenha(valueName, valueEmail, valuePwd, router);
+    console.log(valueName, valueEmail, valuePwd)
   };
 
   function testPwd() {
-    if (valuePwd.length < 6) {
-      return false;
+    if (valuePwd == valuePwd2) {
+      return true;
+    }
+    return false;
+  }
+
+  function testPwd6() {
+    if (valuePwd.length < 6){
+        return false;
     }
     return true;
   }
@@ -47,31 +60,25 @@ export default function Login() {
     return re.test(valueEmail);
   }
 
-  const forgotPwd = () => {
-    if (!valueEmail) {
-      alert("Email não pode estar vazio!");
-      return;
-    }
-    if (!testEmail()) {
-      alert("Email Invalido");
-      return;
-    }
-
-    recuperarSenha(valueEmail);
-  };
-
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 animate-fade-up">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <div className="space-y-8">
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 animate-fade-up ">
+        <div className="inline-block max-w-lg text-center justify-center space-y-8">
             <div className="flex flex-warp space-x-4 items-center justify-center">
               <h1 className={title({ color: "fullviolet", size: "sm" })}>
-                Faça o Login
+                Registro
               </h1>
               <NexusLogo size={60}/>
             </div>
             <div className="space-y-4">
+            <Input
+                isRequired
+                type="email"
+                label="Name"
+                placeholder="Enter your name"
+                onValueChange={setValueName}
+                className="max-w-xs"
+              />
               <Input
                 isRequired
                 type="email"
@@ -100,29 +107,40 @@ export default function Login() {
                 type={isVisible ? "text" : "password"}
                 className="max-w-xs"
               />
-            </div>
+              <Input
+                label="Password"
+                placeholder="Repeat your password"
+                onValueChange={setValuePwd2}
+                endContent={
+                  <button
+                    className="focus:outline-none"
+                    type="button"
+                    onClick={toggleVisibility}
+                  >
+                    {isVisible ? (
+                      <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                    ) : (
+                      <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                    )}
+                  </button>
+                }
+                type={isVisible ? "text" : "password"}
+                className="max-w-xs"
+              />
           </div>
-          <a
-            onClick={forgotPwd}
-            className="flex mb-4 hover:cursor-pointer hover:text-violet-600"
-          >
-            Esqueceu a senha?
-          </a>
-          <div>
             <Button
               className="w-full font-bold bg-purple-600 text-white"
               color="primary"
               onClick={buttonSend}
             >
-              Login
+              Criar!
             </Button>
-            <a href="/register">
-              Não possui uma conta?{" "}
+            <a href="/login">
+              Já possui uma conta?{" "}
               <span className="text-violet-600 font-bold hover:cursor-pointer">
-                Crie aqui!
+                Faça login!
               </span>
             </a>
-          </div>
         </div>
       </section>
     </DefaultLayout>

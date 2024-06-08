@@ -2,19 +2,22 @@ import { app } from './firebase';
 
 import { signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, sendPasswordResetEmail, signOut} from "firebase/auth";
 import { addDoc, collection, getFirestore, query, getDocs, where} from "firebase/firestore";
+import { useRouter } from 'next/router';
 
 const auth = getAuth(app)
 const db = getFirestore(app)
 
-const loginComEmailESenha = async (email, pwd) => {
+const loginComEmailESenha = async (email, pwd, router) => {
     try {
         await signInWithEmailAndPassword(auth, email, pwd)
     }catch(error){
         alert("Email ou senha invalidos")
+    } finally {
+        router.push("/dashboard")
     }
 }
 
-const registrarComEmailESenha = async (name, email, pwd) => {
+const registrarComEmailESenha = async (name, email, pwd, router) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, pwd);
         const user = res.user;
@@ -22,10 +25,13 @@ const registrarComEmailESenha = async (name, email, pwd) => {
             uid: user.uid,
             name,
             authProvider: "local",
-            email
+            email,
+            tipo: 2
         })
     }catch(error){
-
+        alert(error)
+    }finally {
+        router.push("/dashboard")
     }
 }
 
@@ -38,8 +44,9 @@ const recuperarSenha = async (email) => {
     }
 }
 
-const logout = () => {
+const logout = (router) => {
     signOut(auth);
+    router.push("/")
 }
 
 export {
