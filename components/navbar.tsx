@@ -89,7 +89,7 @@ export const Navbar = () => {
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
-          {loggedIn && <Button onClick={logOut}>Deslogar</Button>}
+          {loggedIn && <Link isExternal><Button onClick={logOut}>Deslogar</Button></Link>}
         </NavbarItem>
       </NavbarContent>
 
@@ -99,7 +99,7 @@ export const Navbar = () => {
         </Link>
         <ThemeSwitch />
         <NavbarMenuToggle />
-        {loggedIn && <Button onClick={logOut}>Deslogar</Button>}
+        {loggedIn && <Link isExternal><Button onClick={logOut}>Deslogar</Button></Link>}
       </NavbarContent>
 
       <NavbarMenu>
