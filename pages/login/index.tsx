@@ -102,12 +102,12 @@ export default function Login() {
               />
             </div>
           </div>
-          <a
+          <Button
             onClick={forgotPwd}
-            className="flex mb-4 hover:cursor-pointer hover:text-violet-600"
+            className="flex mb-4 hover:cursor-pointer hover:text-violet-600 bg-transparent"
           >
             Esqueceu a senha?
-          </a>
+          </Button>
           <div>
             <Button
               className="w-full font-bold bg-purple-600 text-white"
