@@ -23,6 +23,7 @@ import {
   GithubIcon,
   DiscordIcon,
   HeartFilledIcon,
+  LogOutIcon, // Assuming this is where LogOutIcon is imported from
 } from "@/components/icons";
 import { NexusLogo } from "@/components/icons";
 import { useEffect, useState } from "react";
@@ -38,11 +39,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user: any) => {
-      if (!user) {
-        setLoggedIn(false);
-      } else {
-        setLoggedIn(true);
-      }
+      setLoggedIn(!!user);
     });
 
     return () => {
@@ -89,7 +86,11 @@ export const Navbar = () => {
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
-          {loggedIn && <Link isExternal><Button onClick={logOut}>Deslogar</Button></Link>}
+          {loggedIn && (
+            <Button onClick={logOut} className="hover:cursor-pointer">
+              <LogOutIcon />
+            </Button>
+          )}
         </NavbarItem>
       </NavbarContent>
 
@@ -99,7 +100,11 @@ export const Navbar = () => {
         </Link>
         <ThemeSwitch />
         <NavbarMenuToggle />
-        {loggedIn && <Link isExternal><Button onClick={logOut}>Deslogar</Button></Link>}
+        {loggedIn && (
+          <Button onClick={logOut} className="hover:cursor-pointer">
+            <LogOutIcon />
+          </Button>
+        )}
       </NavbarContent>
 
       <NavbarMenu>
